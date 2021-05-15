@@ -30,7 +30,15 @@ class LinkedListNode():
 
 def delete_node(delete_this_node):
     # Your code here
+    temp = delete_this_node.next
+    delete_this_node.value = None
+    delete_this_node.next = temp.next
 
+def printList(node):
+    temp = node
+    while(temp != None):
+        print(temp.value, end=' ')
+        temp = temp.next
 
 x = LinkedListNode('X')
 y = LinkedListNode('Y')
@@ -40,3 +48,6 @@ x.next = y
 y.next = z
 
 delete_node(y)
+printList(x) #output: "X" with x.next is None
+printList(y) #output: None
+printList(z) #output: "Z"
